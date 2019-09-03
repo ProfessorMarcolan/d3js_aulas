@@ -37,7 +37,7 @@
 //                 .attr("r",50)
 //                 .attr("fill","green")
 
-
+// https://www.youtube.com/watch?v=OZXYk_bgQGQ
 // delete
 var data = [100];
 
@@ -48,9 +48,9 @@ var circle1 = canvas.append("circle")
             .attr("r",25);
 
 var circle2 = canvas.append("circle")
-            .attr("cx",50)
-            .attr("cy",200)
-            .attr("r",25);
+            .attr("cx", 50)
+            .attr("cy", 200)
+            .attr("r", 25);
 
 
 // só da trigger se a quantidade for menor
@@ -67,7 +67,7 @@ var circles = canvas.selectAll("circle").data(data)
             .attr("fill","red");
             
 
-canvas.selectAll("circle").data(data).exit().attr("fill","blue")
+            canvas.selectAll("circle").data(data).exit().attr("fill","blue")
 // alguma coisa está errado com o delete.
 // circles
             
