@@ -13,38 +13,55 @@ function render(frutas){
     canvas.attr("height", 800)
     canvas.attr("width", 800)
 
-    let frutas_2 = canvas.selectAll("g").data(frutas)
-                .enter().append("g")
-                .attr("r", d => d.r)
-                .attr("transform", (d,i) => `translate(${120*i + 30},${400})`)
-
-    
-
-
-frutas_2.append("circle").attr("r", 5)
+    canvas.selectAll("circle").data(frutas)
+            .enter().append("circle").attr("r", 5)
+            .attr("cx", (d,i) => {return i*100 + 40})
+            .attr("cy", 400/2)
             .attr("r", d => d.r)
             .attr("fill",d => d.cor).on("mouseover",function(d){
                 d3.select(this).attr("fill","blue")
             }).on("mouseout",function(d){
                 d3.select(this).attr("fill",d => d.cor)
             })
+            .exit().remove()
+                // .enter().append("cricle")
+                // .attr("r", d => d.r)
+                // .attr("transform", (d,i) => `translate(${120*i + 30},${400})`)
+                
+             
+
+    
+
+
+// frutas_2.append("circle").attr("r", 5)
+//             .attr("r", d => d.r)
+//             .attr("fill",d => d.cor).on("mouseover",function(d){
+//                 d3.select(this).attr("fill","blue")
+//             }).on("mouseout",function(d){
+//                 d3.select(this).attr("fill",d => d.cor)
+//             })
 
 
 
-frutas_2.append("text").text(d=> d.tipo)
+// frutas_2.append("text").text(d=> d.tipo)
+
 
 }
 
 
 render(frutas)
 
+frutas.pop()
 
-setInterval(()=>{
+render(frutas)
 
-    frutas.forEach( (el) =>{ el.r = el.r + 10})
 
-    render(frutas)
-},1000)
+// setInterval(()=>{
+
+//     frutas.forEach( (el) =>{ el.r = el.r + 10})
+
+//     render(frutas)
+// },1000)
 
 
 
