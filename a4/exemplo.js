@@ -39,7 +39,7 @@
 
 // https://www.youtube.com/watch?v=OZXYk_bgQGQ
 // delete
-var data = [100];
+var data = [100, 200, 300];
 
 var canvas = d3.select("body").append("svg").attr("width",500).attr("height",500)
 var circle1 = canvas.append("circle")
@@ -59,15 +59,17 @@ var circle2 = canvas.append("circle")
 
 var circles = canvas.selectAll("circle").data(data)
             .attr("fill","green")
-            .enter()
+            
+            
+    circles.enter()
             .append("circle")
             .attr("cx",50)
             .attr("cy",(d)=> {return d})
             .attr("r",50)
-            .attr("fill","red");
-            
+            .attr("fill","red")
 
-            canvas.selectAll("circle").data(data).exit().attr("fill","blue")
+
+    circles.exit().attr("fill","blue")
 // alguma coisa está errado com o delete.
 // circles
             
